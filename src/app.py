@@ -45,17 +45,15 @@ def get_member(member_id):
 @app.route('/members', methods=['POST'])
 def save_member():
     req = request.get_json()
-    jackson_family.add_member(req)
-    return jsonify() , 200
+    resp = jackson_family.add_member(req)
+    return jsonify(resp) , 200
 
 
 @app.route('/members/<member_id>', methods=['DELETE'])
 def delete_member(member_id):
     jackson_family.delete_member(member_id)
     return jsonify({
-        "body":{
-            "done":True
-        }
+        "done":True
     }) , 200
 
 # This only runs if `$ python src/app.py` is executed

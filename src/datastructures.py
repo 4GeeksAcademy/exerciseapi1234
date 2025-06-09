@@ -42,7 +42,7 @@ class FamilyStructure:
     def add_member(self, member): 
         member["id"] = self._generate_id()
         self._members.append(member)
-        pass
+        return member
 
     def delete_member(self, id):
         self._members = [ m for m in self._members if m["id"] != int(id)]
@@ -52,7 +52,7 @@ class FamilyStructure:
             if member["id"] == int(id):
                 return member
         
-        return None
+        return 0
 
 
     # This method is done, it returns a list with all the family members
